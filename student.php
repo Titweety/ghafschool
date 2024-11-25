@@ -38,8 +38,7 @@
         <tr>
             <th>No.</th>
             <th>Name</th>
-            <th>Course Code</th>
-            <th>Course Desciption</th>
+            <th>Student ID</th>
         </tr>
     </table>
 </body>

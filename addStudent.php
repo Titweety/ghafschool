@@ -47,7 +47,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && !empty($_POST['add'])){
     <form action="" method="post">
         <span class="error">* are required fields</span>
         <br>
-        <label for="name">Code</label><span class="error">*</span>
+        <label for="name">Name</label><span class="error">*</span>
         <br>
         <input type="text" name="name" id="name" value="<?php echo $name;?>">
         <br>
@@ -57,7 +57,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && !empty($_POST['add'])){
         <?php endif;?>
         <br>
             
-        <label for="student_id">Description</label><span class="error">*</span>
+        <label for="student_id">Student ID</label><span class="error">*</span>
         <br>
         <input type="text" name="student_id" id="student_id" value="<?php echo $student_id;?>">
         <br>
