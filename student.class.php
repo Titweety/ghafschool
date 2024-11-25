@@ -3,7 +3,7 @@ require_once 'database.class.php';
 
 class Student{
     public $name;
-    public $course_id;
+    public $student_id;
     public $id;
     
     protected $db;
@@ -14,12 +14,12 @@ class Student{
     }
 
     function add() {
-        $sql = "INSERT INTO students(name, course_id, id) VALUES (:name, :course_id, :id)";
+        $sql = "INSERT INTO students(name, student_id, id) VALUES (:name, :student_id, :id)";
 
         $query = $this->db->connect()->prepare($sql);
 
         $query->bindParam(":name", $this->name);
-        $query->bindParam(":course_id", $this->course_id);
+        $query->bindParam(":student_id", $this->student_id);
         $query->bindParam(":id", $this->id);
 
         if ($query->execute()) {

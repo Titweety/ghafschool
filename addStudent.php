@@ -2,31 +2,31 @@
 require_once 'function.php';
 require_once 'student.class.php';
 
-$name = $course_id = '';
-$nameErr = $course_idErr = '';
+$name = $student_id = '';
+$nameErr = $student_idErr = '';
 
 $productObj = new Student();
 
 if (($_SERVER['REQUEST_METHOD'] == 'POST') && !empty($_POST['add'])){
 
     $name = clean_input($_POST['name']);
-    $course_id = clean_input($_POST['course_id']);
+    $student_id = clean_input($_POST['student_id']);
 
     if (empty($name)){
         $nameErr = 'Name is required';
     }
-    if (empty($course_id)){
-        $course_idErr = 'Course ID is required';
+    if (empty($student_id)){
+        $student_idErr = 'Student ID is required';
     }
 
     if (empty($nameErr) && empty($course_idErr)){
-        $productObj->course_id = $course_id;
+        $productObj->student_id = $student_id;
 
         if($productObj->add()){
             header('Location: index.php');
         }
         else{
-            echo 'Something went wrong adding a new course';
+            echo 'Something went wrong adding a student';
         }
     }
 }
@@ -57,21 +57,21 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && !empty($_POST['add'])){
         <?php endif;?>
         <br>
             
-        <label for="course_id">Description</label><span class="error">*</span>
+        <label for="student_id">Description</label><span class="error">*</span>
         <br>
-        <input type="text" name="course_id" id="course_id" value="<?php echo $course_id;?>">
+        <input type="text" name="student_id" id="student_id" value="<?php echo $student_id;?>">
         <br>
-        <?php if (!empty($course_idErr)): ?>
-        <span class="error"><?= $course_idErr ?></span>
+        <?php if (!empty($student_idErr)): ?>
+        <span class="error"><?= $student_idErr ?></span>
         <br>
         <?php endif;?>
-        <?php if(!empty($course_idErr)):?>
-        <span class="error"><?php echo $course_idErr;?></span>
+        <?php if(!empty($student_idErr)):?>
+        <span class="error"><?php echo $student_idErr;?></span>
         <br>
         <?php endif;?>
 
         <br>
-        <input type="submit" value="Add Course">
+        <input type="submit" value="Add Student">
     </form>
 </body>
 </html>
